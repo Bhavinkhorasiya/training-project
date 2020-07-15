@@ -9175,3 +9175,6 @@ Caused by: org.gradle.api.tasks.testing.TestExecutionException: No matching test
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
 	at java.base/java.lang.Thread.run(Thread.java:835)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2020-07-15 17:14:47.050
+!MESSAGE locking FileBasedConfig[C:\Users\bhavi\.gitconfig] failed after 5 retries
