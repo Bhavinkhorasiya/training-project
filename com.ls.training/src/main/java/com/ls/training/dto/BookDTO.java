@@ -10,25 +10,25 @@ public class BookDTO {
 	private String author;
 	private String isbn;
 	private List<PageDTO> pageDTO;
-//	private UsersDTO usersDTO;
-//	private AuthorsDTO  authorsDTO;
+	private UsersDTO usersDTO;
+	private AuthorsDTO  authorsDTO;
 
-//	
-//	public AuthorsDTO getAuthorsDTO() {
-//		return authorsDTO;
-//	}
-//
-//	public void setAuthorsDTO(AuthorsDTO authorsDTO) {
-//		this.authorsDTO = authorsDTO;
-//	}
-//
-//	public UsersDTO getUsersDTO() {
-//		return usersDTO;
-//	}
-//
-//	public void setUsersDTO(UsersDTO usersDTO) {
-//		this.usersDTO = usersDTO;
-//	}
+	
+	public AuthorsDTO getAuthorsDTO() {
+		return authorsDTO;
+	}
+
+	public void setAuthorsDTO(AuthorsDTO authorsDTO) {
+		this.authorsDTO = authorsDTO;
+	}
+
+	public UsersDTO getUsersDTO() {
+		return usersDTO;
+	}
+
+	public void setUsersDTO(UsersDTO usersDTO) {
+		this.usersDTO = usersDTO;
+	}
 
 	public BookDTO() {
 		super();
