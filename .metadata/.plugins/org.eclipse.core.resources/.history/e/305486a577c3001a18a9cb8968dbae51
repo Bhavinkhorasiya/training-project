@@ -1,0 +1,136 @@
+package com.ls.training.entity;
+
+import java.io.Serializable;
+
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Version;
+
+import org.apache.tomcat.jni.User;
+
+@Entity
+public class Address implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+
+	@Version
+	private int version;
+
+	@Basic
+	private String line1;
+
+	@Basic
+	private String line2;
+
+	@Basic
+	private String city;
+
+	@Basic
+	private String state;
+
+	@Basic
+	private String country;
+
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "address", cascade = CascadeType.ALL)
+	private Users users;
+	
+	@OneToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
+	private Users users;
+
+//	@OneToOne(fetch = FetchType.LAZY, mappedBy = "address", cascade = CascadeType.DETACH)
+//	private Users users;
+
+//	
+//	@OneToOne(fetch = FetchType.LAZY, mappedBy = "address", cascade = CascadeType.ALL)
+//	private Book book;
+
+//
+//	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+//	private Users users2;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+
+	public String getLine1() {
+		return line1;
+	}
+
+	public void setLine1(String line1) {
+		this.line1 = line1;
+	}
+
+	public String getLine2() {
+		return line2;
+	}
+
+	public void setLine2(String line2) {
+		this.line2 = line2;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public Users getUsers() {
+		return users;
+	}
+
+	public void setUsers(Users users) {
+		this.users = users;
+	}
+
+//	public Book getBook() {
+//		return book;
+//	}
+//
+//	public void setBook(Book book) {
+//		this.book = book;
+//	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+}

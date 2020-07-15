@@ -1,0 +1,12 @@
+package com.ls.training.service;
+
+import com.ls.training.dto.AuthorsDTO;
+
+public class AuthorsService {
+
+	public AuthorsDTO save(AuthorsDTO authorsDTO) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

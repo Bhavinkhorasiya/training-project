@@ -1,0 +1,38 @@
+package com.ls.training.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ls.training.dto.BookDTO;
+import com.ls.training.service.BookService;
+
+@RestController
+@RequestMapping("/book")
+public class BookController {
+	
+	@Autowired
+	 private BookService bookService;
+	
+	@GetMapping("/{id}")
+	public BookDTO get(@PathVariable("id") Long id) {
+		return bookService.get(id);
+	}
+	
+	@PostMapping()
+	public BookDTO save(@RequestBody BookDTO bookDTO){
+		return bookService.save(bookDTO);
+	}
+	
+	@PutMapping()
+	public BookDTO update(@RequestBody BookDTO bookDTO) {
+		return bookService.update(bookDTO);
+	}
+	
+
+}

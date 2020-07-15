@@ -1,0 +1,22 @@
+package com.ls.training.service.impl;
+
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+import com.ls.training.dto.PageDTO;
+import com.ls.training.service.PageService;
+
+@Service
+@Component
+@Transactional
+public class PageServiceImpl  implements PageService{
+
+	@Override
+	public PageDTO delete(PageDTO pageDTO) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

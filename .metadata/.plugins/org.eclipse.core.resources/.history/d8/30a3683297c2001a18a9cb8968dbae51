@@ -1,0 +1,22 @@
+package com.ls.training.dto;
+public class UsersDTO {
+	
+	private long id;
+	private int verion;
+	private String firstName;
+	private String lastName;
+	private String email;
+	private String mobile;
+	private String password;
+	
+	private AddressDTO addressDTO;
+	
+	
+	@Override
+	public String toString() {
+		return "UsersDTO [id=" + id + ", verion=" + verion + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", email=" + email + ", mobile=" + mobile + ", password=" + password + "]";
+	}
+	
+	
+}

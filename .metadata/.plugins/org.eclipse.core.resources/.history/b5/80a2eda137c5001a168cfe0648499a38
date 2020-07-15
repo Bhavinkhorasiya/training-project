@@ -1,0 +1,35 @@
+package com.ls.training.entity;
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Version;
+
+@Entity
+public class Authors implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long aid;
+
+	@Version
+	private int version;
+
+	@Basic
+	private String author;
+
+	
+	@OneToMany(fetch = FetchType.EAGER, cascade =CascadeType.DETACH)
+	@JoinColumn
+	private List<Book> books;
+}

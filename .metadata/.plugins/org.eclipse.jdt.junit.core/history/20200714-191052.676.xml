@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="BookServiceTest.save" project="com.ls.training" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.ls.training.service.BookServiceTest" time="0.916" displayname="BookServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.ls.training.service.BookServiceTest]">
+    <testcase name="save" classname="com.ls.training.service.BookServiceTest" time="0.916" displayname="save()" uniqueid="[engine:junit-jupiter]/[class:com.ls.training.service.BookServiceTest]/[method:save()]"/>
+  </testsuite>
+</testrun>

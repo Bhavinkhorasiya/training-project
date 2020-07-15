@@ -1,0 +1,9 @@
+package com.ls.training.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.ls.training.entity.OfficeDetails;
+
+public class OfficeDetailsRepository implements JpaRepository<OfficeDetails, Long> {
+
+}

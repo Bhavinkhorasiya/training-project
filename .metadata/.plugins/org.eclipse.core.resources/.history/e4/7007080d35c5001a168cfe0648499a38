@@ -1,0 +1,77 @@
+package com.ls.training.entity;
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Version;
+
+@SuppressWarnings("serial")
+@Entity
+public class Authors implements Serializable {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long aid;
+
+	@Version
+	private int version;
+	
+	@Basic
+	private String author;
+
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn
+	private List<Book> books;
+	
+	
+	public Authors() {
+		super();
+	}
+	public List<Book> getBooks() {
+		return books;
+	}
+
+	public void setBooks(List<Book> books) {
+		this.books = books;
+	}
+
+	public Long getAid() {
+		return aid;
+	}
+
+	public void setAid(Long aid) {
+		this.aid = aid;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	@Override
+	public String toString() {
+		return "Authors [uid=" + aid + ", version=" + version + ", author=" + author + ", book=" + "]";
+	}
+
+
+}

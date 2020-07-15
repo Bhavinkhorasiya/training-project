@@ -1,0 +1,14 @@
+package com.ls.training.service.impl;
+
+import com.ls.training.dto.UsersDTO;
+import com.ls.training.service.OfficeDetailsService;
+
+public class OfficeDetailsServiceImpl implements OfficeDetailsService {
+
+	@Override
+	public UsersDTO get(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,17 @@
+package com.ls.training.dto;
+
+import java.util.List;
+
+
+public class PageDTO {
+	
+		private Long id;
+	    private int number;
+		private String content;
+	    private String chapter;
+	    
+	    private List<BookDTO> bookDTO;
+	    
+		
+	    
+}

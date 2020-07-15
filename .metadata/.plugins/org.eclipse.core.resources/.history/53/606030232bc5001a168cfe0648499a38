@@ -1,0 +1,9 @@
+package com.ls.training.service;
+
+import org.springframework.stereotype.Service;
+
+import com.ls.training.dto.AuthorsDTO;
+@Service
+public interface AuthorsService {
+	public AuthorsDTO save(AuthorsDTO authorsDTO);
+}

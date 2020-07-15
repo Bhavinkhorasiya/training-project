@@ -1,0 +1,9 @@
+package com.ls.training.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.ls.training.dto.AuthorsDTO;
+
+public class AuthorsRepository extends JpaRepository<AuthorsDTO, Long>{
+
+}

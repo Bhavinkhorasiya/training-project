@@ -1,0 +1,40 @@
+package com.ls.training.service.impl;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+import com.ls.training.dto.PageDTO;
+import com.ls.training.entity.Page;
+import com.ls.training.repository.PageRepository;
+import com.ls.training.service.PageService;
+
+@Service
+@Component
+@Transactional
+public class PageServiceImpl  implements PageService{
+	
+	@Autowired
+	private PageRepository pageRepository;
+
+	@Override
+	public PageDTO delete(PageDTO pageDTO) {
+	Page page = pageRepository.getOne(pageDTO.getId());
+	pageRepository.delete(page);
+	BeanUtils.copyProperties(page, pageDTO);
+	return pageDTO;
+	}
+
+	@Override
+	public PageDTO get(long id) {
+		Page page = pageRepository.getOne(id);
+		System.out.println(page);
+		PageDTO pageDTO = new PageDTO();
+		BeanUtils.copyProperties(page, pageDTO);
+		return pageDTO;
+	}
+
+}

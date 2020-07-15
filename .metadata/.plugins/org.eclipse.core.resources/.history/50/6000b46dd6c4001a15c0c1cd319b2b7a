@@ -1,0 +1,10 @@
+package com.ls.training.entity;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+
+@Entity
+public class OfficeDetails implements Serializable {
+
+}

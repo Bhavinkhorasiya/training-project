@@ -1,0 +1,5 @@
+package com.ls.training.repository.impl;
+
+public class BookRepositoryImpl {
+
+}

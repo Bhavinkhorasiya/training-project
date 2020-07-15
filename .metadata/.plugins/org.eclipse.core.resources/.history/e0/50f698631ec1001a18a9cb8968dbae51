@@ -1,0 +1,34 @@
+package com.ls.training.repository.impl;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import com.ls.training.entity.Book;
+import com.ls.training.repository.BookRepository;
+import com.ls.training.repository.BookRepositoryCustom;
+
+public class BookRepositoryImpl implements BookRepositoryCustom {
+
+	@PersistenceContext
+	private EntityManager entityManager;
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Book> getByTitle(String title) {
+		
+		StringBuilder sbquery = new StringBuilder();
+		sbquery.append("SELECT a FROM book a");
+		sbquery.append("WHERE a.title = :title");
+		
+		Query query = entityManager.createQuery(sbquery.toString());
+		query.setParameter("title", title;)
+		List<Book> books = query.getResultList();
+		System.out.println(books);
+		return books;
+		
+	}
+
+}

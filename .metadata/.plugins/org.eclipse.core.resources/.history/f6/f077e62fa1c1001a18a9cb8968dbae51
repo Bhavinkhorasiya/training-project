@@ -1,0 +1,92 @@
+package com.ls.training.service.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+import com.ls.training.dto.BookDTO;
+import com.ls.training.dto.PageDTO;
+import com.ls.training.entity.Book;
+import com.ls.training.entity.Page;
+import com.ls.training.repository.BookRepository;
+import com.ls.training.service.BookService;
+@Service
+@Component
+@Transactional
+public class BookServiceImpl implements BookService {
+
+	@Autowired
+	private BookRepository bookRepository;
+	@Override
+	public BookDTO save(BookDTO bookDTO) {
+		Book book = new Book();//create object of book entity
+		BeanUtils.copyProperties(bookDTO, book);//copy property in book entity from DTO
+		
+		List<PageDTO> pageDTOs = bookDTO.getPageDTO(); //get value pagedto obj get from bookdto and store in List of pageDtos
+		List<Page> pageList = new ArrayList<Page>(); //cerate blank list object  for page
+		Page page = new Page(); //create new page entity object
+		for(int i=0; i < bookDTO.getPageDTO().size(); i++) {
+			PageDTO pageDTO =  pageDTOs.get(i); //getone by one pageDTO object 
+			BeanUtils.copyProperties(pageDTO, page);//copy proerty
+			pageList.add(page); // add page in Pagelist
+		}
+		book.setPage(pageList);// set pagelist  in book entity
+		book = bookRepository.save(book);//save data
+		BeanUtils.copyProperties(book, bookDTO); //copy property
+		return bookDTO;
+	}
+	@Override
+	public BookDTO get(long bid) {
+		Book book = bookRepository.getOne(bid); // get id from bookService test
+		BookDTO bookDTO = new BookDTO(); //create new object for book dto
+		BeanUtils.copyProperties(book, bookDTO); // copy property in bookDTO from book
+		
+		List<Page> listPage = book.getPage(); //get list of data from list of page entity
+		List<PageDTO> listPageDTO = new ArrayList<PageDTO>(); // create new arrayList for storing pageDTO
+		PageDTO pageDTO = new PageDTO(); //create new object pageDTO for storing one by one list 
+		for (int i = 0; i < book.getPage().size(); i++) {
+			Page page = listPage.get(i); //get one by one list of Page entity and store in page entity
+			BeanUtils.copyProperties(page, pageDTO); // copy property in page - from pageDTO
+			listPageDTO.add(pageDTO); //add every pagedto in list of PageDTO
+		}
+		bookDTO.setPageDTO(listPageDTO); //set value of pagedto in bookDTO
+		return bookDTO;
+		
+	}
+	@Override
+	public BookDTO update(BookDTO bookDTO) {
+		Book book = bookRepository.getOne(bookDTO.getBid());
+		BeanUtils.copyProperties(bookDTO, book);
+		List<Page> pageList = new ArrayList<Page>(); //cerate blank list object  for page
+		Page page = new Page(); //create new page entity object
+		List<PageDTO> pageDTOs = bookDTO.getPageDTO(); //get value pagedto obj get from bookdto and store in List of pageDtos 
+		for(int i=0; i < bookDTO.getPageDTO().size(); i++) {
+			PageDTO pageDTO =  pageDTOs.get(i); //getone by one pageDTO object 
+			BeanUtils.copyProperties(pageDTO, page);//copy proerty
+			pageList.add(page); // add page in Pagelist
+		}
+		
+		book.setPage(pageList);
+		book = bookRepository.save(book);
+		BeanUtils.copyProperties(book, bookDTO);
+		return bookDTO;
+	}
+	@Override
+	public List<BookDTO> getByTitle(String title) {
+		List<Book>bookses = bookRepository.getByTitle(title);
+		List<BookDTO> bookDTOs = new ArrayList<BookDTO>();
+		bookses.stream().forEach(book ->{
+			BookDTO bookDTO  = new BookDTO();
+			BeanUtils.copyProperties(book, bookDTO);
+			bookDTOs.add(bookDTO);
+		});
+				
+		return bookDTOs;
+	}
+}

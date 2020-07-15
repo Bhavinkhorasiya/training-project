@@ -1,0 +1,40 @@
+package com.ls.training.service;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
+
+import com.ls.training.TrainingApplication;
+import com.ls.training.dto.OfficeDetailsDTO;
+
+@SpringBootTest
+@ContextConfiguration(classes = { TrainingApplication.class })
+public class OfficeDetailsServiceTest {
+	
+	@Autowired 
+	private OfficeDetailsService officeDetailsService;
+	
+	@Test
+	void save() {
+		OfficeDetailsDTO officeDetailsDTO = new OfficeDetailsDTO();
+		officeDetailsDTO.setLine1("B-107 Sappath 5");
+		officeDetailsDTO.setLine2("mithajkhali Navrang pura");
+		officeDetailsDTO.setCity("Ahmedabad");
+		officeDetailsDTO.setState("Gujarat");
+		officeDetailsDTO.setCountry("India");
+		
+		officeDetailsDTO = officeDetailsService.save(officeDetailsDTO);
+		
+	}
+	@Test
+	void update() {
+		OfficeDetailsDTO officeDetailsDTO = officeDetailsService.get(448L);
+		officeDetailsDTO.setLine1("A-605 Sapath 3");
+		officeDetailsDTO.setLine2("Mithakhali Navranngpura");
+		officeDetailsDTO.setCity("Ahmedabad");
+		officeDetailsDTO.setState("Gujarat);
+		
+	}
+	
+}

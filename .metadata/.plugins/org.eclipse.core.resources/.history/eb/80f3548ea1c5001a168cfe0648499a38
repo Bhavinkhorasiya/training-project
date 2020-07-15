@@ -1,0 +1,113 @@
+package com.ls.training.service;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
+
+import com.ls.training.TrainingApplication;
+import com.ls.training.dto.BookDTO;
+import com.ls.training.dto.PageDTO;
+import com.ls.training.entity.Page;
+@SpringBootTest
+@ContextConfiguration(classes = { TrainingApplication.class })
+public class BookServiceTest {
+	
+	@Autowired
+	private BookService bookService;
+	
+	@Test
+	void save() {
+
+		PageDTO pageDTO = new PageDTO();//create object odd DTO and store data
+		pageDTO.setContent("Joshua Bloch");
+		pageDTO.setChapter(" 3rd Edition");
+		pageDTO.setNumber(3);
+		
+		PageDTO pageDTO2 = new PageDTO();//create object odd DTO and store data
+		pageDTO2.setNumber(110);
+		pageDTO2.setContent("Bert Bates Schildt 2");
+		pageDTO2.setChapter("Bert Bates 2");
+
+		
+		PageDTO pageDTO3 = new PageDTO();//create object odd DTO and store data
+		pageDTO3.setContent("Kathy Sierra & Bert Bates");
+		pageDTO3.setChapter("Bert Bates 3");
+		pageDTO3.setNumber(126);
+		
+		PageDTO pageDTO4 = new PageDTO();//create object odd DTO and store data
+		pageDTO4.setNumber(125);
+		pageDTO4.setContent("Brian Goetz with Tim Peierls");
+		pageDTO4.setChapter("Goetz 3");
+
+		
+		List<PageDTO> listpageDTO = new ArrayList<PageDTO>();//create new arraylist for store object of page DTO
+		listpageDTO.add(pageDTO);
+		listpageDTO.add(pageDTO2);
+		listpageDTO.add(pageDTO3);
+		listpageDTO.add(pageDTO4);
+		
+		System.out.println("listpageDTO" + listpageDTO);
+		
+		BookDTO bookDTO = new BookDTO();//create object odd DTO and store data
+		bookDTO.setAuthor("Satyarth Nayak");
+		bookDTO.setTitle("Sridevi: Girl Woman Superstar");
+		bookDTO.setIsbn("2012");
+		bookDTO.setPageDTO(listpageDTO);//set pageDTO list in Book DTO
+		
+		bookDTO = bookService.save(bookDTO);//save  book DTO
+		System.out.println("bookDTO" + bookDTO.getPageDTO().toString());
+		assertTrue(bookDTO.getBid() > 0);
+	}
+	
+	@Test
+	void get() {
+		BookDTO bookDTO = bookService.get(382L);
+		assertNotNull(bookDTO);
+	}
+
+	@Test
+	void update() {
+	BookDTO bookDTO = bookService.get(449L);
+	bookDTO.setAuthor("bhavin");
+	bookDTO.setTitle("learn Advance Java");
+	bookDTO.setIsbn("2020");
+	
+	List<Page> pageList = new ArrayList<Page>(); //create blank list object  for page
+	Page page = new Page(); //create new page entity object
+	List<PageDTO> pageDTOs = bookDTO.getPageDTO();//get value pagedto obj get from bookdto and store in List of pageDtos
+	for(int i=0; i < bookDTO.getPageDTO().size(); i++) {
+		PageDTO pageDTO =  pageDTOs.get(i); //getone by one pageDTO object 
+		pageDTO.setChapter("Chater");
+		pageDTO.setContent("Group of  people");
+		pageDTO.setNumber(1207);
+		BeanUtils.copyProperties(pageDTO, page);//copy proerty
+		pageList.add(page); // add page in Pagelist
+	}
+	bookDTO.setPageDTO(pageDTOs);// set pagelist  in book entity
+	bookDTO = bookService.update(bookDTO);
+	assertTrue(bookDTO.getBid() > 0);
+	}
+	
+	@Test 
+	void getByTitle() {
+		List<BookDTO> bookDTO =  bookService.getByTitle("learn Advance Java");
+		System.out.println("get by title" + bookDTO);
+		assertTrue(bookDTO.size() > 0);
+	}
+	
+	@Test
+	void delete() {
+		BookDTO bookDTO = bookService.get(377L);
+		System.out.println(bookDTO);
+		bookDTO = bookService.delete(bookDTO);
+		assertTrue(bookDTO.getBid() > 0);
+	}
+}

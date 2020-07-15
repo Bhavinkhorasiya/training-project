@@ -1,0 +1,7 @@
+package com.ls.training.service.impl;
+
+import com.ls.training.service.OfficeDetailsService;
+
+public class OfficeDetailsServiceImpl implements OfficeDetailsService {
+
+}

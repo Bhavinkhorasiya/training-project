@@ -1,0 +1,63 @@
+package com.ls.training.dto;
+
+import java.util.List;
+
+public class BookDTO {
+
+	private Long id;
+	private int version;
+	private String title;
+	private String author;
+    private String isbn;
+    private List<PageDTO> pageDTO;
+	
+    
+
+	public BookDTO() {
+		super();
+	}
+	public List<PageDTO> getPageDTO() {
+		return pageDTO;
+	}
+	public void setPageDTO(List<PageDTO> listPage) {
+		this.pageDTO =  listPage;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public int getVersion() {
+		return version;
+	}
+	public void setVersion(int version) {
+		this.version = version;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getAuthor() {
+		return author;
+	}
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	public String getIsbn() {
+		return isbn;
+	}
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+	@Override
+	public String toString() {
+		return "BookDTO [id=" + id + ", version=" + version + ", title=" + title + ", author=" + author + ", isbn="
+				+ isbn + ", pageDTO=" + pageDTO + "]";
+	}
+	
+	
+	
+}

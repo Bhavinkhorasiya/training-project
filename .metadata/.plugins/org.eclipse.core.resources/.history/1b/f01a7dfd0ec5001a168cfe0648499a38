@@ -1,0 +1,5 @@
+package com.ls.training.repository;
+
+public class AuthorsRepository {
+
+}

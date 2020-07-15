@@ -1,0 +1,66 @@
+package com.ls.training.service;
+
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
+
+import com.ls.training.TrainingApplication;
+import com.ls.training.dto.AuthorsDTO;
+import com.ls.training.dto.BookDTO;
+import com.ls.training.entity.Authors;
+	
+@SpringBootTest
+@ContextConfiguration(classes = { TrainingApplication.class })
+public class AuthorsServiceTest {
+	
+	@Autowired
+	private AuthorsService authorsService;
+	
+	@Test
+	void save() {
+		
+		BookDTO bookDTO = new BookDTO();
+		bookDTO.setAuthor("R P N Singh");
+		bookDTO.setIsbn("2010");
+		bookDTO.setTitle("Politics of Opportunism");
+		
+		BookDTO bookDTO2 = new BookDTO();
+		bookDTO2.setAuthor("Akkitham Achuthan Namboodri");
+		bookDTO2.setIsbn("2011");
+		bookDTO2.setTitle("Malayalam poetry");
+		
+		BookDTO bookDTO3 = new BookDTO();
+		bookDTO3.setAuthor("Margaret Atwood");
+		bookDTO3.setIsbn("2012");
+		bookDTO3.setTitle("The Testaments");
+		
+		
+		List<BookDTO> listBookDTO = new ArrayList<BookDTO>();
+		listBookDTO.add(bookDTO);
+		listBookDTO.add(bookDTO2);
+		listBookDTO.add(bookDTO3);
+		
+		AuthorsDTO authorsDTO = new AuthorsDTO();
+		authorsDTO.setAuthor("Amit Shah");
+		authorsDTO.setBookDTO(listBookDTO);
+		
+		System.out.println(authorsDTO);
+	
+		authorsDTO = authorsService.save(authorsDTO);
+		assertTrue(authorsDTO.getAid() > 0);
+	}
+
+	@Test
+	void get() {
+		AuthorsDTO authorsDTO = authorsService.get(425L);
+		assertNotNull(authorsDTO);
+	}
+}

@@ -1,0 +1,82 @@
+package com.ls.training.dto;
+
+public class UsersDTO {
+
+	private long uid;
+	private int verion;
+	private String firstName;
+	private String lastName;
+	private String email;
+	private String mobile;
+	private String password;
+
+	private AddressDTO addressDTO;
+
+	
+	
+	public int getVerion() {
+		return verion;
+	}
+
+	public void setVerion(int verion) {
+		this.verion = verion;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public AddressDTO getAddressDTO() {
+		return addressDTO;
+	}
+
+	public void setAddressDTO(AddressDTO addressDTO) {
+		this.addressDTO = addressDTO;
+	}
+
+	@Override
+	public String toString() {
+		return "UsersDTO [id=" + id + ", verion=" + verion + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", email=" + email + ", mobile=" + mobile + ", password=" + password + ", addressDTO=" + addressDTO
+				+ "]";
+	}
+
+	
+
+}

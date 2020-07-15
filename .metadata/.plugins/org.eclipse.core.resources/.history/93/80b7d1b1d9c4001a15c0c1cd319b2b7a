@@ -1,0 +1,6 @@
+package com.ls.training.repository;
+
+@Repository
+public interface OfficeDetailsRepository extends jpare
+
+}

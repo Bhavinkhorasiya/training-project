@@ -1,0 +1,20 @@
+package com.ls.training.service.impl;
+
+import org.springframework.beans.BeanUtils;
+
+import com.ls.training.dto.AddressDTO;
+import com.ls.training.dto.UsersDTO;
+import com.ls.training.entity.Address;
+import com.ls.training.service.OfficeDetailsService;
+
+public class OfficeDetailsServiceImpl implements OfficeDetailsService {
+
+	@Override
+	public UsersDTO get(Long id) {
+//		Address address= addressRepository.getOne(id);//get  data using id and store in address object
+//		AddressDTO addressDTO = new AddressDTO();//create object addtessDTO 
+//		BeanUtils.copyProperties(address, addressDTO);//copy property in addtessDTO from address
+//		return addressDTO;//return AddressDTO
+	}
+
+}

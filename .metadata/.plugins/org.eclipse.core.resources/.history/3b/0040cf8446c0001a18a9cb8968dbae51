@@ -1,0 +1,49 @@
+package com.ls.training.dto;
+
+import com.ls.training.entity.Book;
+
+public class PageDTO {
+	
+		private Long id;
+	    private String number;
+		private String content;
+	    private String chapter;
+	    private BookDTO bookDTO;
+	    
+		public Book getBook() {
+			return book;
+		}
+		public void setBook(Book book) {
+			this.book = book;
+		}
+		public Long getId() {
+			return id;
+		}
+		public void setId(Long id) {
+			this.id = id;
+		}
+		public String getNumber() {
+			return number;
+		}
+		public void setNumber(String string) {
+			this.number = string;
+		}
+		public String getContent() {
+			return content;
+		}
+		public void setContent(String content) {
+			this.content = content;
+		}
+		public String getChapter() {
+			return chapter;
+		}
+		public void setChapter(String chapter) {
+			this.chapter = chapter;
+		}
+		@Override
+		public String toString() {
+			return "PageDTO [id=" + id + ", number=" + number + ", content=" + content + ", chapter=" + chapter + "]";
+		}    
+
+	    
+}

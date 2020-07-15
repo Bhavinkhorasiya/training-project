@@ -1,0 +1,14 @@
+package com.ls.training.service;
+
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+import com.ls.training.dto.BookDTO;
+@Service
+@Component
+public interface BookService {
+	public BookDTO save(BookDTO bookDTO);
+
+	public void get(long l);
+
+}

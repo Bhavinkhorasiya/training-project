@@ -1,0 +1,71 @@
+package com.ls.training.service.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.ls.training.dto.AddressDTO;
+import com.ls.training.entity.Address;
+import com.ls.training.repository.AddressRepository;
+import com.ls.training.service.AddressService;
+
+@Service
+@Transactional
+public class AddressServiceImpl implements AddressService{
+	
+	
+	@Autowired
+	private AddressRepository addressRepository;
+	
+	
+	public AddressDTO save(AddressDTO addressDTO) {
+		Address address = new Address();//create object for address
+		BeanUtils.copyProperties(addressDTO, address);//copy property in address object from addressDTO
+		address = addressRepository.save(address); //sava data 
+		BeanUtils.copyProperties(address, addressDTO);//copy property in addressDTO from address object
+		return addressDTO;//return addressDTO
+	}
+
+	@Override
+	public AddressDTO get(Long id) {
+		Address address= addressRepository.getOne(id);//get  data using id and store in address object
+		AddressDTO addressDTO = new AddressDTO();//create object addtessDTO 
+		BeanUtils.copyProperties(address, addressDTO);//copy property in addtessDTO from address
+		return addressDTO;//return AddressDTO
+	}
+
+	
+	@Override
+	public AddressDTO update(AddressDTO addressDTO) {
+		Address address = addressRepository.getOne(addressDTO.getId());//get data using id and store in addtress object
+		BeanUtils.copyProperties(addressDTO, address);//copy property in address object from addressDTO
+		address = addressRepository.save(address);//save method call
+		BeanUtils.copyProperties(address, addressDTO);//copy property in addressDTO object from address
+		return addressDTO;
+	}
+	
+	@Override
+	public List<AddressDTO> getByState(String state){
+		List<Address> addresses = addressRepository.getByState(state);//get data using variable add store in list of address
+		List<AddressDTO> addressDTOs =  new ArrayList<AddressDTO>();//cerate new list of addressdto for storing listof data
+		addresses.stream().forEach(address -> {
+			AddressDTO addressDTO =  new AddressDTO();
+			BeanUtils.copyProperties(address, addressDTO);
+			addressDTOs.add(addressDTO);
+			System.out.println("addressDTOs" + addressDTOs);
+		});
+		return addressDTOs;
+	}
+
+	@Override
+	public AddressDTO delete(AddressDTO addressDTO) {
+		Address address= addressRepository.getOne(addressDTO.getId());//get  data using id and store in address object
+		addressRepository.delete(address);
+		return null;
+	}
+
+}

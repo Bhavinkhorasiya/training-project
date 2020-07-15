@@ -1,0 +1,8 @@
+package com.ls.training.service;
+
+import com.ls.training.dto.AuthorsDTO;
+
+public interface AuthorsService {
+	
+	public AuthorsDTO sace(AuthorsDTO authorsDTO);
+}

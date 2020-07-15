@@ -1,0 +1,41 @@
+package com.ls.training.dto;
+
+import java.util.List;
+
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Version;
+
+import com.ls.training.entity.Book;
+
+public class AuthorsDTO {
+
+	
+	private Long uid;
+	private String author;
+	private List<Book> book;
+	public Long getUid() {
+		return uid;
+	}
+	public void setUid(Long uid) {
+		this.uid = uid;
+	}
+	public String getAuthor() {
+		return author;
+	}
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	public List<Book> getBook() {
+		return book;
+	}
+	public void setBook(List<Book> book) {
+		this.book = book;
+	}
+	
+	
+	
+}

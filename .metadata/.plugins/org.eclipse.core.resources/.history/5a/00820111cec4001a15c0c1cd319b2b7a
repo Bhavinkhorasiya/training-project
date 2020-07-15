@@ -1,0 +1,34 @@
+package com.ls.training.service;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
+
+import com.ls.training.TrainingApplication;
+import com.ls.training.dto.PageDTO;
+
+@SpringBootTest
+@ContextConfiguration(classes = { TrainingApplication.class })
+public class PageServiceTest {
+	
+	@Autowired
+	private PageService pageService;
+	
+	@Test
+	void get() {
+		PageDTO pageDTO = pageService.get(328L);
+		System.out.println(pageDTO);
+		assertNotNull(pageDTO);
+	}
+	
+	@Test
+	void delete() {
+		
+	}
+	
+	
+
+}

@@ -1,0 +1,18 @@
+package com.ls.training.repository.impl;
+
+import java.util.List;
+
+import com.ls.training.entity.Book;
+import com.ls.training.repository.BookRepository;
+import com.ls.training.repository.BookRepositoryCustom;
+
+public class BookRepositoryImpl implements BookRepositoryCustom {
+
+	@Override
+	public List<Book> getByTitle(String title) {
+		
+		StringBuilder sbquery = new StringBuilder()
+		
+	}
+
+}

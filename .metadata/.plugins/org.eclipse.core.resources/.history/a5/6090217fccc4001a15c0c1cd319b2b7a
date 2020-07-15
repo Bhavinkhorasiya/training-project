@@ -1,0 +1,5 @@
+package com.ls.training.service.impl;
+
+public class PageServiceImpl {
+
+}

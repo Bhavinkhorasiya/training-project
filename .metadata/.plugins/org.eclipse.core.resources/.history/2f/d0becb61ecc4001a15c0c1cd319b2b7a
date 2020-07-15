@@ -1,0 +1,83 @@
+package com.ls.training.dto;
+
+import com.ls.training.entity.Users;
+
+public class OfficeDetailsDTO {
+	private Long oid;
+	private int version;
+	private String line1;
+	private String line2;
+	private String city;
+	private String state;
+	private String Country;
+
+
+	public OfficeDetailsDTO() {
+		super();
+	}
+	
+
+	public Long getOid() {
+		return oid;
+	}
+
+
+	public void setOid(Long oid) {
+		this.oid = oid;
+	}
+
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+
+	public String getLine1() {
+		return line1;
+	}
+
+	public void setLine1(String line1) {
+		this.line1 = line1;
+	}
+
+	public String getLine2() {
+		return line2;
+	}
+
+	public void setLine2(String line2) {
+		this.line2 = line2;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getCountry() {
+		return Country;
+	}
+
+	public void setCountry(String country) {
+		Country = country;
+	}
+
+	@Override
+	public String toString() {
+		return "AddressDTO [id=" + oid + ", version=" + version + ", line1=" + line1 + ", line2=" + line2 + ", city="
+				+ city + ", state=" + state + ", Country=" + Country + "]";
+	}
+}

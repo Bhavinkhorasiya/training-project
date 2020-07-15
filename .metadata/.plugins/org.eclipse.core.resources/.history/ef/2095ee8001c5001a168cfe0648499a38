@@ -1,0 +1,8 @@
+package com.ls.training.service;
+
+import com.ls.training.dto.OfficeDetailsDTO;
+
+public interface OfficeDetailsService {
+	public OfficeDetailsDTO get(Long id);
+
+}
