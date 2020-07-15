@@ -35,12 +35,7 @@ public class BookController {
 	public BookDTO update(@RequestBody BookDTO bookDTO) {
 		return bookService.update(bookDTO);
 	}
-	
-//	@DeleteMapping("/delete/{id}")
-//	public BookDTO delete(@PathVariable("id") BookDTO id) {
-//		return bookService.delete(id);
-//	}
-//	
+
 
 	@GetMapping("/book/{title}")
 	public List<BookDTO> getByTitle(@PathVariable("title") String title) {
