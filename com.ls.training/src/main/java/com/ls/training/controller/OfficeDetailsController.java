@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ls.training.dto.OfficeDetailsDTO;
 import com.ls.training.service.OfficeDetailsService;
-
 @RestController
 @RequestMapping(path = "/office_details")
 public class OfficeDetailsController {
@@ -36,7 +35,7 @@ public class OfficeDetailsController {
 
 	}
 
-	@DeleteMapping("{id}")
+	@DeleteMapping("/delete/{id}")
 	public OfficeDetailsDTO delete(@PathVariable("id") long id) {
 		return officeDetailsService.delete(id);
 	}
