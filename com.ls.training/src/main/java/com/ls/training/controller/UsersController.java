@@ -43,7 +43,7 @@ public class UsersController {
 	}
 
 	@DeleteMapping("/delete/{uid}")
-	public UsersDTO delete(@PathVariable("uid") UsersDTO uid) {
+	public UsersDTO delete(@PathVariable("uid") long uid) {
 		return userService.delete(uid);
 	}
 

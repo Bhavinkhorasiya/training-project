@@ -3,6 +3,7 @@ package com.ls.training.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,10 +37,13 @@ public class BookController {
 		return bookService.update(bookDTO);
 	}
 
-
 	@GetMapping("/book/{title}")
 	public List<BookDTO> getByTitle(@PathVariable("title") String title) {
 		return bookService.getByTitle(title);
 	}
 
+	@DeleteMapping("/delete/{id}")
+	public BookDTO delete(@PathVariable("id") long id) {
+		return bookService.delete(id);
+	}
 }

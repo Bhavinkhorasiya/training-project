@@ -64,9 +64,10 @@ public class AddressServiceImpl implements AddressService {
 	}
 
 	@Override
-	public AddressDTO delete(AddressDTO addressDTO) {
-		Address address = addressRepository.getOne(addressDTO.getId());// get data using id and store in address object
+	public AddressDTO delete(long id) {
+		Address address = addressRepository.getOne(id);//get data using id and store in address object
 		addressRepository.delete(address);
+		AddressDTO addressDTO = new AddressDTO();
 		BeanUtils.copyProperties(address, addressDTO);
 		return addressDTO;
 	}

@@ -105,9 +105,7 @@ public class BookServiceTest {
 	
 	@Test
 	void delete() {
-		BookDTO bookDTO = bookService.get(377L);
-		System.out.println(bookDTO);
-		bookDTO = bookService.delete(bookDTO);
+		BookDTO bookDTO = bookService.delete(449L);
 		assertTrue(bookDTO.getBid() > 0);
 	}
 }

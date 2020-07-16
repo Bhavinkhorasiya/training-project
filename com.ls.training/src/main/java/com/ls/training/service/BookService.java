@@ -13,6 +13,6 @@ public interface BookService {
 	public BookDTO get(long bid);
 	public BookDTO update(BookDTO bookDTO);
 	public List<BookDTO> getByTitle(String title);
-	public BookDTO delete(BookDTO bookDTO);
+	public BookDTO delete(long id);
 
 }

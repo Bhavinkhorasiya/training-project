@@ -27,8 +27,7 @@ public class PageServiceTest {
 	
 	@Test
 	void delete() {
-		PageDTO pageDTO = pageService.get(328L);
-		pageDTO = pageService.delete(pageDTO);
+		PageDTO pageDTO = pageService.delete(328L);
 		assertTrue(pageDTO.getId() > 0);
 	}
 	

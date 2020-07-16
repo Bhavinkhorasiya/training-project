@@ -57,8 +57,7 @@ public class AddressServiceTest {
 
 	@Test
 	void delete() {
-		AddressDTO addressDTO = addressService.get(362L);
-		addressDTO = addressService.delete(addressDTO);
+		AddressDTO addressDTO = addressService.delete(455L);
 		assertTrue(addressDTO.getId() > 0);
 	}
 

@@ -102,10 +102,10 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public BookDTO delete(BookDTO bookDTO) {
-		Book book = bookRepository.getOne(bookDTO.getBid());
-		System.out.println(book);
+	public BookDTO delete(long id) {
+		Book book = bookRepository.getOne(id);
 		bookRepository.delete(book);
+		BookDTO bookDTO = new BookDTO();
 		BeanUtils.copyProperties(book, bookDTO);
 		return bookDTO;
 	}

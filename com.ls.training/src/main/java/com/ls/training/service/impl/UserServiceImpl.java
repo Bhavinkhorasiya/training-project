@@ -113,9 +113,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UsersDTO delete(UsersDTO usersDTO) {
-		Users users = userRepository.getOne(usersDTO.getUid());
+	public UsersDTO delete(long uid) {//long che 
+		Users users = userRepository.getOne(uid);
 		userRepository.delete(users);
+		UsersDTO usersDTO = new UsersDTO();
 		BeanUtils.copyProperties(users, usersDTO);
 		return usersDTO;
 	}

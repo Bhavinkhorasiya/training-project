@@ -8,5 +8,5 @@ public interface UserService {
 	public UsersDTO get(Long id);
 	public UsersDTO update(UsersDTO usersDTO);
 	public List<UsersDTO> getByEmail(String email);
-	public UsersDTO delete(UsersDTO userDTO);
+	public UsersDTO delete(long uid);
 }

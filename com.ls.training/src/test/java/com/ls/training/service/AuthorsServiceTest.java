@@ -89,9 +89,7 @@ public class AuthorsServiceTest {
 	
 	@Test
 	void delete() {
-		AuthorsDTO authorsDTO = authorsService.get(432L);
-		authorsDTO = authorsService.delete(authorsDTO);
-		System.out.println(authorsDTO);
+		AuthorsDTO authorsDTO = authorsService.delete(432L);
 		assertTrue(authorsDTO.getAid() > 0);
 	}
 	

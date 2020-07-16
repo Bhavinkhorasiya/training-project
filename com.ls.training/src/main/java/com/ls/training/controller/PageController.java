@@ -28,8 +28,8 @@ public class PageController {
 		return pageService.update(pageDTO);
 	}
 	
-	@DeleteMapping("delete{id}")
-	public PageDTO delete(@PathVariable("id") PageDTO id) {
+	@DeleteMapping("/delete/{id}")
+	public PageDTO delete(@PathVariable("id") long id) {
 		return pageService.delete(id);
 	}
 }

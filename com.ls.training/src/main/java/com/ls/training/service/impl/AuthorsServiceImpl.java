@@ -87,49 +87,14 @@ public class AuthorsServiceImpl implements AuthorsService {
 
 
 	@Override
-	public AuthorsDTO delete(AuthorsDTO authorsDTO) {
-		Authors authors = authorsRepository.getOne(authorsDTO.getAid());
+	public AuthorsDTO delete(long id) {
+		Authors authors = authorsRepository.getOne(id);
 		authorsRepository.delete(authors);
+		AuthorsDTO authorsDTO = new AuthorsDTO();		
 		BeanUtils.copyProperties(authors, authorsDTO);
 		return authorsDTO;
 		
 	}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-				
 
 }

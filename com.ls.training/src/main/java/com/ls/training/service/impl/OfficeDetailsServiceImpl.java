@@ -49,10 +49,10 @@ public class OfficeDetailsServiceImpl implements OfficeDetailsService {
 	}
 
 	@Override
-	public OfficeDetailsDTO delete(OfficeDetailsDTO officeDetailsDTO) {
-		OfficeDetails officeDetails = officeDetailsRepository.getOne(officeDetailsDTO.getId());// TODO Auto-generated method stub
-		BeanUtils.copyProperties(officeDetailsDTO, officeDetails);
+	public OfficeDetailsDTO delete(long id) {
+		OfficeDetails officeDetails = officeDetailsRepository.getOne(id);// TODO Auto-generated method stub
 		officeDetailsRepository.delete(officeDetails);
+		OfficeDetailsDTO officeDetailsDTO = new OfficeDetailsDTO();
 		BeanUtils.copyProperties(officeDetails, officeDetailsDTO);
 		return officeDetailsDTO;
 	}

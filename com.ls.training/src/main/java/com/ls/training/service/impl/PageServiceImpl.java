@@ -21,9 +21,10 @@ public class PageServiceImpl  implements PageService{
 	private PageRepository pageRepository;
 
 	@Override
-	public PageDTO delete(PageDTO pageDTO) {
-	Page page = pageRepository.getOne(pageDTO.getId());
+	public PageDTO delete(long id) {
+	Page page = pageRepository.getOne(id);
 	pageRepository.delete(page);
+	PageDTO pageDTO = new PageDTO();
 	BeanUtils.copyProperties(page, pageDTO);
 	return pageDTO;
 	}

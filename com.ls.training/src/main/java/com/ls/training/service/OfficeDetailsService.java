@@ -6,6 +6,6 @@ public interface OfficeDetailsService {
 	public OfficeDetailsDTO get(Long id);
 	public OfficeDetailsDTO save(OfficeDetailsDTO officeDetailsDTO);
 	public OfficeDetailsDTO update(OfficeDetailsDTO officeDetailsDTO);
-	public OfficeDetailsDTO delete(OfficeDetailsDTO officeDetailsDTO);
+	public OfficeDetailsDTO delete(long id);
 
 }

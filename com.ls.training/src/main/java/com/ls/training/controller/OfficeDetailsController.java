@@ -37,7 +37,7 @@ public class OfficeDetailsController {
 	}
 
 	@DeleteMapping("{id}")
-	public OfficeDetailsDTO delete(@PathVariable("id") OfficeDetailsDTO id) {
+	public OfficeDetailsDTO delete(@PathVariable("id") long id) {
 		return officeDetailsService.delete(id);
 	}
 

@@ -52,9 +52,8 @@ public class OfficeDetailsServiceTest {
 	
 	@Test 
 	void delete() {
-		OfficeDetailsDTO officeDetailsDTO = officeDetailsService.get(464L);
-		officeDetailsService.delete(officeDetailsDTO);
-		assertNotNull(officeDetailsDTO);
+		OfficeDetailsDTO officeDetailsDTO = officeDetailsService.delete(464L);
+		assertTrue(officeDetailsDTO.getId() > 0);
 	}
 	
 }

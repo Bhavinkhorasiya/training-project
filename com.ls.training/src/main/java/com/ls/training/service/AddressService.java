@@ -9,6 +9,6 @@ public interface AddressService {
 	public AddressDTO update(AddressDTO addressDTO);
 	public List<AddressDTO> getByState(String state);
 	public AddressDTO save(AddressDTO addressDTO);
-	public AddressDTO delete(AddressDTO addressDTO);
+	public AddressDTO delete(long id);
 
 }

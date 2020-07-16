@@ -101,8 +101,7 @@ public class UserServiceTest {
 
 	@Test
 	void delete() {
-		UsersDTO usersDTO = usersService.get(407L);
-		usersDTO = usersService.delete(usersDTO);
+		UsersDTO usersDTO = usersService.delete(509L);
 		assertTrue(usersDTO.getUid() > 0);
 	}
 }

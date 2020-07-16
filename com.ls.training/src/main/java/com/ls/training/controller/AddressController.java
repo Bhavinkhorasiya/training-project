@@ -42,8 +42,8 @@ public class AddressController {
 		return addressService.getByState(state);
 	}
 
-	@DeleteMapping("{id}")
-	public AddressDTO delete(@PathVariable("id") AddressDTO id) {
+	@DeleteMapping("/delete/{id}")
+	public AddressDTO delete(@PathVariable("id") long id) {
 		return addressService.delete(id);
 	}
 

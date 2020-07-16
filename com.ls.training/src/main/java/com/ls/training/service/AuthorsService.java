@@ -9,10 +9,7 @@ import com.ls.training.dto.AuthorsDTO;
 @Component
 public interface AuthorsService {
 	public AuthorsDTO save(AuthorsDTO authorsDTO);
-
 	public AuthorsDTO get(long id);
-
 	public AuthorsDTO update(AuthorsDTO authorsDTO);
-
-	public AuthorsDTO delete(AuthorsDTO authorsDTO);
+	public AuthorsDTO delete(long id);
 }

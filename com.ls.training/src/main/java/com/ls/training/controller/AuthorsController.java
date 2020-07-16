@@ -36,7 +36,7 @@ public class AuthorsController {
 	}
 	
 	@DeleteMapping("/delete/{id}")
-	public AuthorsDTO delete(@PathVariable("id")AuthorsDTO id) {
+	public AuthorsDTO delete(@PathVariable("id") long id) {
 		return authorsService.delete(id);
 	}
 }
